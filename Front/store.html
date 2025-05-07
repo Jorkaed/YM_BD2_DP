@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Yesti Moda-Store</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="./css/styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header id="header" class="navbar navbar-expand-lg fixed-top z-3 d-flex justify-content-center justify-content-md-between align-items-center px-4 py-0">
+            <div id="header-logo" class="navbar-brand d-flex align-items-center justify-content-center me-0">
+                <a id="logo" href="index.html"></a>
+            </div>
+            <nav id="nav" class="nav d-none d-md-flex">
+                <a class="nav-link" href="index.html">Inicio</a>
+                <a class="nav-link" href="store.html">Tienda</a>
+                <a class="nav-link" href="#">Nosotros</a>
+            </nav>
+            <div id="header-icons" class="d-flex justify-content-evenly justify-content-md-end align-items-center p-md-0 gap-2 px-3 py-2">
+                <button type="button" id="burger-button" class="btn d-md-none border-0" data-bs-toggle="offcanvas" data-bs-target="#nav-slap" aria-controls="Hamburgesa"></button>
+                <button type="button" id="search-button" class="btn border-0" data-bs-toggle="offcanvas" data-bs-target="#search-slap" aria-controls="Busqueda"></button>
+                <button type="button" id="favorite-button" class="btn border-0" data-bs-toggle="offcanvas" data-bs-target="#favorite-slap" aria-controls="Favoritos"></button>
+                <button type="button" id="bag-button" class="btn border-0" data-bs-toggle="offcanvas" data-bs-target="#bag-slap" aria-controls="Bolsa"></button>
+                <button type="button" id="login-button" class="btn border-0" data-bs-toggle="modal" data-bs-target="#login-modal" aria-controls="Inicio de Sesión"></button>
+            </div>
+        </header>
+        <div id="slaps">
+            <section id="nav-slap" class="offcanvas offcanvas-start" tabindex="-1" aria-labelledby="Espacio de navegación movil">
+                <div class="offcanvas-header">
+                    <h2 id="nav-slap-title" class="offcanvas-title me-auto">Navegación</h2>
+                    <button type="button" class="exit btn border-0" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <nav id="nav-slap-nav" class="nav flex-column">
+                        <a class="nav-link" href="#">Inicio</a>
+                        <a class="nav-link" href="store.html">Tienda</a>
+                        <a class="nav-link" href="#">Nosotros</a>
+                    </nav>
+                </div>
+            </section>
+            <section id="bag-slap" class="offcanvas offcanvas-end" tabindex="-1" aria-labelledby="Bolsa de compras">
+                <div class="offcanvas-header">
+                    <h2 id="bag-slap-title" class="offcanvas-title me-auto">Bolsa</h2>
+                    <button type="button" class="exit btn border-0" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+                </div>
+                <div class="offcanvas-body">
+                </div>
+            </section>
+            <section id="favorite-slap" class="offcanvas offcanvas-end" tabindex="-1" aria-labelledby="Favoritos">
+                <div class="offcanvas-header">
+                    <h2 id="favorite-slap-title" class="offcanvas-title me-auto">Favoritos</h2>
+                    <button type="button" class="exit btn border-0" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+                </div>
+                <div class="offcanvas-body">
+                </div>
+            </section>
+            <section id="search-slap" class="offcanvas offcanvas-end" tabindex="-1" aria-labelledby="Busqueda">
+                    <div class="offcanvas-header d-flex justify-content-end">
+                        <form action="#" class="flex-fill">
+                            <input type="text" class="form-control" placeholder="Buscar...">
+                        </form>
+                        <button type="button" class="exit btn ms-3 border-0" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+                </div>
+            </section>
+            <section id="filter-slap" class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" aria-labelledby="Filtros">
+                <div class="offcanvas-header">
+                    <h2 id="filter-slap-title" class="offcanvas-title me-auto">Filtros</h2>
+                    <button type="button" class="exit btn border-0" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+                </div>
+                <div class="offcanvas-body">
+                </div>
+            </section>
+            <section id="login-modal" class="modal fade" tabindex="-1" aria-labelledby="Inicio de Sesión" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content rounded-0">
+                        <div class="modal-header px-4">
+                            <h1 class="modal-title me-auto" id="login-title">Iniciar Sesión</h1>
+                            <button type="button" class="exit btn border-0" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body px-4">
+                            <form action="POST">
+                                <div class="form-floating mb-2">
+                                    <input type="email" id="input-email" class="form-control" placeholder="tu_correo@yaslimoda.com">
+                                    <label for="input-email" class="form-label">Correo</label>
+                                </div>
+                                <div class="form-floating mb-4">
+                                    <input type="password" id="input-password" class="form-control" placeholder="●●●●●●●●">
+                                    <label for="input-password" class="form-label">Contraseña</label>
+                                </div>
+                                <div class="row gap-2 mx-2">
+                                    <input type="submit" class="btn btn-primary border-0" value="Ingresar">
+                                    <button type="button" id="Register-button" class="btn btn-secondary border-0" data-bs-toggle="modal" data-bs-target="#register-modal" aria-controls="Registrarse">Registrarse</button>
+                                </div>
+                            </form>
+                            <div class="text-center my-3">
+                                <a id="forgot-password" class="fw-bolder" href="#">Olvidé mi contraseña</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="register-modal" class="modal fade" tabindex="-1" aria-labelledby="Inicio de Sesión" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content rounded-0">
+                        <div class="modal-header px-4">
+                            <button type="button" id="Retroceder-register" class="retroceder btn border-0" data-bs-toggle="modal" data-bs-target="#login-modal" aria-controls="Retroceder"></button>
+                            <h1 class="modal-title mx-auto" id="Register-title">Registrarse</h1>
+                            <button type="button" class="exit btn" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body px-4">
+                            <form action="POST">
+                                <div class="form-floating mb-2">
+                                    <input id="name" type="text" class="form-control" placeholder="Nombre">
+                                    <label for="name" class="form-label">Nombre</label>
+                                </div>
+                                <div class="form-floating mb-2">
+                                    <input id="las-name" type="text" class="form-control" placeholder="Apellido">
+                                    <label for="last-name" class="form-label">Apellido</label>
+                                </div>
+                                <div class="form-floating mb-2">
+                                    <input id="email" type="email" class="form-control" placeholder="Correo Electrónico">
+                                    <label for="email" class="form-label">Correo Electrónico</label>
+                                </div>
+                                <div class="form-floating mb-2">
+                                    <input id="password" type="password" class="form-control" placeholder="●●●●●●●●">
+                                    <label for="password" class="form-label">Contraseña</label>
+                                </div>
+                                <div class="form-floating mb-2">
+                                    <input id="password-2" type="password" class="form-control" placeholder="●●●●●●●●">
+                                    <label for="password-2" class="form-label">Repetir Contraseña</label>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                                    <input type="date" id="fecha" class="form-control" name="fecha">
+                                </div>
+                                <div class="mb-8 form-check p-3">
+                                    <input type="checkbox" name = consent-pro class="form-check-input rounded-0" id="exampleCheck1">
+                                    <label class="form-check-label" for="consent-pro">Doy mi consentimiento para actividades de promoción comercial relacionadas con Yesti Moda de acuerdo con nuestra Política de privacidad.</label>
+                                </div>
+                                <div class="mb-8 form-check p-3">
+                                    <input type="checkbox" name = consent-off class="form-check-input rounded-0" id="exampleCheck2">
+                                    <label class="form-check-label" for="consent-off">Doy mi consentimiento para obtener ofertas y planes personalizados basados en mis preferencias de acuerdo con la Política de privacidad de Yesti Moda.</label>
+                                </div>
+                                <div class="row mx-2">
+                                    <button type="submit" class="btn btn-primary border-0">Registrarse</button>
+                                </div>
+                                <div class="my-3">
+                                    <span>Al continuar, confirmas haber leído y entendido <a id="privacy" class="fw-bolder" href="#">Política de privacidad</a> de Yesti Moda </span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <main id="container">
+            <section id="store" class="px-3 py-2">
+                <div id="store-options" class="pb-2">
+                    <button type="button" id="filter-button" class="btn ms-2 border-0" data-bs-toggle="offcanvas" data-bs-target="#filter-slap" aria-controls="Busqueda"></button>
+                </div>
+                <div id="products" class="mb-3"></div>
+                <div id="pagination" class="d-flex justify-content-center gap-3"></div>
+            </section>
+        </main>
+        <footer id="footer" class="d-flex flex-column align-items-center justify-content-center mb-5 mb-md-0 gap-2 p-3">
+            <div id="footer-logo"></div>
+            <div id="contact-icons" class="d-flex gap-2">
+                <a id="contact-instagram" class="btn border-0 position-relative d-inline-block overflow-hidden" role="button"></a>
+                <a id="contact-facebook" class="btn border-0" role="button"></a>
+                <a id="contact-whatsapp" class="btn border-0" role="button"></a>
+            </div>
+        </footer>
+        <script src="./js/bootstrap.bundle.min.js"></script>
+        <script src="./js/script_store.js"></script>
+    </body>
+</html>
