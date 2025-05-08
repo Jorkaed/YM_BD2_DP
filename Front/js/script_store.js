@@ -94,9 +94,5 @@ displayPagination();
 
 function goHeader() {
     var options = document.getElementById('store-options');
-    const offsetTop = options.offsetTop-64;
-    window.scrollTo({
-        top: offsetTop,
-        behavior: 'smooth'
-    });
+    options.scrollIntoView({block: "end"});
 }
