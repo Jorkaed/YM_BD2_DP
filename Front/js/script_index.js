@@ -11,8 +11,8 @@ const products = [];
 
   const itemsPerSlide = () => {
     const w = window.innerWidth;
-    if (w >= 1024) return 4;
-    if (w >= 768) return 3;
+    if (w >= 768) return 4;
+    if (w >= 576) return 3;
     return 2;
   };
 
@@ -28,7 +28,7 @@ const products = [];
       <div class="carousel-item ${idx === 0 ? 'active' : ''}">
         <div class="row">
           ${slide.map(prod => `
-            <div class="col-6 col-md-4 col-lg-3 mb-3 mb-md-2">
+            <div class="col-6 col-sm-4 col-md-3 mb-3 mb-md-2">
               <div class="card rounded-0 shadow">
                 <img src="./img/image-demo.webp" class="card-img-top object-fit-cover rounded-0 px-3 pt-3" alt="${prod.name}">
                 <div class="card-body justify-content-center d-flex flex-column">

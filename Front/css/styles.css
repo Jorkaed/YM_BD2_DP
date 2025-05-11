@@ -11,17 +11,18 @@
 
 body {
     font-family: var(--font-family);
+    scroll-behavior: smooth;
 }
 
 /* Header */
 
 #header {
-    height: 50px;
+    height: 64px;
 }
 
 #logo {
-    width: 144px;
-    height: 40px;
+    width: 180px;
+    height: 50px;
     mask: url("../img/img_YM/Logo-completo.svg");
     mask-size: 100%;
     mask-position: center;
@@ -105,7 +106,6 @@ body {
 
 #footer {
     height: 145px;
-    margin-bottom: 46px;
 }
 
 #footer-logo {
@@ -171,15 +171,11 @@ body {
 /* elementos */
 
 #container {
-    margin-top: 50px;
-}
-
-.offcanvas {
-    transition: transform 0.2s ease-in-out;
+    margin-top: 64px;
 }
 
 .card-img-top {
-    aspect-ratio: 4/5;
+    aspect-ratio: 1 / 1;
 }
 
 .btn-primary,
@@ -225,7 +221,7 @@ body {
 
 .cards {
     height: auto;
-    top: 50px;
+    top: 64px;
 }
 
 #formal-title a,
@@ -302,13 +298,12 @@ body {
 }
 
 #pagination button:not(.pagination-button.next, .pagination-button.prev) {
-    background-color: transparent;
-    transition: color 0.3s;
+    transition: color 0.3s ease-in-out;
 }
 
 .pagination-button.next,
 .pagination-button.prev {
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .pagination-button.prev {
