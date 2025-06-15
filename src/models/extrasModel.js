@@ -13,7 +13,7 @@ const getDepartamentos = async() => {
         return resultado.rows
     } catch (error) {
         console.error(error);
-        throw error;    
+        throw error;
     } finally {
         await cliente.end();
     }
@@ -44,12 +44,12 @@ const getTotalBolsa = async(idusuario) => {
         await cliente.connect();
         
         const query = `
-            select count(*) from productos_bolsa 
-            inner join bolsas on producto_bolsa.idbolsa = idbolsa 
-            inner join usuarios on bolsas.idusuario = $1`;
+            SELECT SUM(productos_bolsa.cantidad) FROM productos_bolsa 
+            INNER JOIN bolsas ON productos_bolsa.idbolsa = bolsas.idbolsa 
+            WHERE bolsas.idusuario = $1 and bolsas.idestado = 1`;
         
         const resultado = await cliente.query(query, [idusuario]);
-        return parseInt(resultado.rows[0].count)
+        return resultado.rows[0].sum || 0
     } catch (error) {
         console.error(error);
         throw error;
@@ -65,8 +65,8 @@ const getTotalFavoritos = async(idusuario) => {
         await cliente.connect();
         
         const query = `
-            select count(*) from productos_favoritos 
-            inner join usuarios on productos_favoritos.idusuario = $1`;
+            SELECT COUNT(*) FROM productos_favoritos
+            WHERE idusuario = $1`;
         
         const resultado = await cliente.query(query, [idusuario]);
         return parseInt(resultado.rows[0].count)
@@ -85,8 +85,9 @@ const getTotalPedidos = async(idusuario) => {
         await cliente.connect();
         
         const query = `
-            select count(*) from ventas 
-            inner join usuarios on ventas.idusuario = $1`;
+            SELECT COUNT(*) FROM ventas
+            WHERE idusuario = $1 AND fecha_hora BETWEEN NOW() - INTERVAL '30 days' AND NOW()
+        `;
         
         const resultado = await cliente.query(query, [idusuario]);
         return parseInt(resultado.rows[0].count)
@@ -105,15 +106,16 @@ const getTotalPagado = async(idusuario) => {
         await cliente.connect();
         
         const query = `
-            select coalesce(sum(productos.precio * productos_bolsa.cantidad), 0) from ventas 
-            inner join bolsas on ventas.idbolsa = bolsas.idbolsa 
-            inner join productos_bolsa on productos_bolsa.idbolsa = bolsas.idbolsa 
-            inner join inventario on productos_bolsa.idinventario = inventario.idinventario 
-            inner join productos on productos.idproducto = inventario.idproducto 
-            inner join usuarios on ventas.idusuario = $1`;
+            SELECT SUM(productos.precio * productos_bolsa.cantidad) FROM ventas
+            INNER JOIN bolsas ON ventas.idbolsa = bolsas.idbolsa
+            INNER JOIN productos_bolsa ON productos_bolsa.idbolsa = bolsas.idbolsa
+            INNER JOIN inventario ON productos_bolsa.idinventario = inventario.idinventario
+            INNER JOIN productos ON productos.idproducto = inventario.idproducto
+            WHERE ventas.idusuario = $1 AND ventas.fecha_hora BETWEEN NOW() - INTERVAL '30 days' AND NOW()
+        `;
         
         const resultado = await cliente.query(query, [idusuario]);
-        return resultado.rows[0].sum
+        return resultado.rows[0].sum || 0
     } catch (error) {
         console.error(error);
         throw error;

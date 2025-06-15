@@ -25,10 +25,6 @@ const loguearUsuario = async (req, res) => {
         if (!usuario) {
             return res.status(401).json({ errores: [{ param: 'contrasena', msg: 'Contraseña incorrecta.' }] });
         }
-                
-        const nombreArray = usuario.nombre.split(' ');
-        const apellidoArray = usuario.apellido.split(' ');
-        const nombreCompuesto = nombreArray[0].charAt(0)+nombreArray[0].toLowerCase().slice(1)+" "+apellidoArray[0].charAt(0)+apellidoArray[0].toLowerCase().slice(1);
         
     req.session.usuario = {
         id: usuario.idusuario,

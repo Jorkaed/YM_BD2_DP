@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {obtenerProductos, obtenerNovedades} = require('../controllers/productosControl');
+const {obtenerProductos, obtenerProducto, obtenerVariantes, obtenerNovedades, obtenerProductosMenos} = require('../controllers/productosControl');
 const dashModel = require('../models/dashModel');
 const dashControl = require('../controllers/dashControl');
 const { actualizarImagenPerfil } = require('../controllers/dashControl');
@@ -23,7 +23,6 @@ router.get('/', obtenerNovedades, (req, res) => {
       usuario,
       novedades: res.locals.novedades || []
     });
-    console.log(usuario, res.locals.novedades);
   }
 });
 
@@ -36,6 +35,19 @@ router.get('/tienda', obtenerProductos, (req, res) => {
     const productos = res.locals.productos || [];
     res.render('store', { usuario, productos });
     console.log(usuario, productos);
+  }
+});
+
+router.get('/producto/:idproducto', obtenerProducto, obtenerVariantes, obtenerProductosMenos, (req, res) => {
+    const usuario = res.locals.usuario;
+    const producto = res.locals.producto || [];
+    const productos = res.locals.productos || [];
+    const variantes = res.locals.variantes || [];
+    
+    if (usuario && (usuario.tipo == 1 || usuario.tipo == 2)) {
+        return res.redirect('/dashboard');
+    } else {
+        res.render('producto', { usuario, producto, productos, variantes });
   }
 });
 

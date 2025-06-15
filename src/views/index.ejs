@@ -25,7 +25,7 @@
                         <button class="carousel-control-prev position-relative d-none d-md-block align-self-center" id="carousel-prev-carousel" type="button" data-bs-target="#carrusel-novedades" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon w-100 h-100 border-0"></span>
                         </button>
-                        <div id="carrusel-inner" class="carousel-inner px-md-3 pb-3">
+                        <div id="carrusel-inner" class="carousel-inner px-md-3 py-3">
                         </div>
                         <button class="carousel-control-next position-relative d-none d-md-block align-self-center" id="carousel-next-carousel" type="button" data-bs-target="#carrusel-novedades" data-bs-slide="next">
                             <span class="carousel-control-next-icon w-100 h-100 border-0"></span>
@@ -57,21 +57,21 @@
                         <div id="sports-body" class="row justify-content-center">
                             <div class="col-6 col-sm-4 col-md-3">
                                 <a>
-                                    <div class="card rounded-0 shadow mb-3">
+                                    <div class="card rounded-0 mb-3 card-hover">
                                         <img src="/img/image-demo.webp" class="card-img-top object-fit-cover px-2 py-2">
                                     </div>
                                 </a>
                             </div>
                             <div class="col-6 col-sm-4 col-md-3">
                                 <a>
-                                    <div class="card rounded-0 shadow mb-3">
+                                    <div class="card rounded-0 mb-3 card-hover">
                                         <img src="/img/image-demo.webp" class="card-img-top object-fit-cover px-2 py-2">
                                     </div>
                                 </a>
                             </div>
                             <div class="col-6 col-sm-4 col-md-3">
                                 <a>
-                                    <div class="card rounded-0 shadow mb-3">
+                                    <div class="card rounded-0 mb-3 card-hover">
                                         <img src="/img/image-demo.webp" class="card-img-top object-fit-cover px-2 py-2">
                                     </div>
                                 </a>
@@ -89,21 +89,21 @@
                         <div id="casual-body" class="row justify-content-center">
                             <div class="col-6 col-sm-4 col-md-3">
                                 <a>
-                                    <div class="card rounded-0 shadow mb-3">
+                                    <div class="card rounded-0 mb-3 card-hover">
                                         <img src="/img/image-demo.webp" class="card-img-top object-fit-cover px-2 py-2">
                                     </div>
                                 </a>
                             </div>
                             <div class="col-6 col-sm-4 col-md-3">
                                 <a>
-                                    <div class="card rounded-0 shadow mb-3">
+                                    <div class="card rounded-0 mb-3 card-hover">
                                         <img src="/img/image-demo.webp" class="card-img-top object-fit-cover px-2 py-2">
                                     </div>
                                 </a>
                             </div>
                             <div class="col-6 col-sm-4 col-md-3">
                                 <a>
-                                    <div class="card rounded-0 shadow mb-3">
+                                    <div class="card rounded-0 mb-3 card-hover">
                                         <img src="/img/image-demo.webp" class="card-img-top object-fit-cover px-2 py-2">
                                     </div>
                                 </a>
@@ -121,21 +121,21 @@
                         <div id="formal-body" class="row justify-content-center">
                             <div class="col-6 col-sm-4 col-md-3">
                                 <a>
-                                    <div class="card rounded-0 shadow mb-3">
+                                    <div class="card rounded-0 mb-3 card-hover">
                                         <img src="/img/image-demo.webp" class="card-img-top object-fit-cover px-2 py-2">
                                     </div>
                                 </a>
                             </div>
                             <div class="col-6 col-sm-4 col-md-3">
                                 <a>
-                                    <div class="card rounded-0 shadow mb-3">
+                                    <div class="card rounded-0 mb-3 card-hover">
                                         <img src="/img/image-demo.webp" class="card-img-top object-fit-cover px-2 py-2">
                                     </div>
                                 </a>
                             </div>
                             <div class="col-6 col-sm-4 col-md-3">
                                 <a>
-                                    <div class="card rounded-0 shadow mb-3">
+                                    <div class="card rounded-0 mb-3 card-hover">
                                         <img src="/img/image-demo.webp" class="card-img-top object-fit-cover px-2 py-2">
                                     </div>
                                 </a>
@@ -145,7 +145,11 @@
                 </section>
             </section>
         </main>
+        <script>
+          const productos_novedades = <%- JSON.stringify(novedades) %>;
+        </script>
         <%- include('fragments/footer') %>
-        <script src="./js/script_index.js"></script>
+        <script type="module" src="./js/script_index.js"></script>
+        <script type="module" src="./js/carrusel.js"></script>
     </body>
 </html>

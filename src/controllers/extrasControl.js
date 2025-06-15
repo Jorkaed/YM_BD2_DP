@@ -20,44 +20,25 @@ const obtenerMunicipios = async (req, res) => {
     }
 };
 
-const obtenerTotalBolsa = async (req, res) => {
+const obtenerInformacion = async (req,res) => {
+    const id = req.params.idusuario;
     try {
-        const totalBolsa = await getTotalBolsa(req.params.idusuario);
-        res.json({ total: totalBolsa });
+        const [bolsa, favoritos, pedidos, pagado] = await Promise.all([
+            getTotalBolsa(id),
+            getTotalFavoritos(id),
+            getTotalPedidos(id),
+            getTotalPagado(id)
+        ]);
+        res.json({
+            bolsa,
+            favoritos,
+            pedidos,
+            pagado
+        });
     } catch (err) {
         console.error(err);
-        res.status(500).json({ error: 'Error al obtener el total de productos en la bolsa' });
+        res.status(500).json({ error: 'Error al obtener la información del usuario' });
     }
 };
 
-const obtenerTotalFavoritos = async (req, res) => {
-    try {
-        const totalFavoritos= await getTotalFavoritos(req.params.idusuario);
-        res.json({ total: totalFavoritos });
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Error al obtener el total de productos deseados' });
-    }
-};
-
-const obtenerTotalPedidos = async (req, res) => {
-    try {
-        const totalPedidos = await getTotalPedidos(req.params.idusuario);
-        res.json({ total: totalPedidos });
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Error al obtener el total de pedidos' });
-    }
-};
-
-const obtenerTotalPagado = async (req, res) => {
-    try {
-        const totalPagado = await getTotalPagado(req.params.idusuario);
-        res.json({ total: totalPagado });
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Error al obtener el total pagado' });
-    }
-};
-
-module.exports = { obtenerDepartamentos, obtenerMunicipios,  obtenerTotalBolsa, obtenerTotalFavoritos, obtenerTotalPedidos, obtenerTotalPagado };
+module.exports = { obtenerDepartamentos, obtenerMunicipios,  obtenerInformacion };

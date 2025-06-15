@@ -155,6 +155,25 @@ if (logout) {logout.addEventListener('submit', async (e) => {
 });
 }
 
+const profile = document.getElementById("profile-button");
+if (profile){
+    profile.addEventListener('click', async() => {
+        try {
+            const respuesta = await fetch(`/api/informacion/${usuario.id}`);
+            const informacion = await respuesta.json();
+            
+            document.querySelector('#profile-card-bag .card-text').textContent =informacion.bolsa;
+            document.querySelector('#profile-card-fav .card-text').textContent =informacion.favoritos;
+            document.querySelector('#profile-card-box .card-text').textContent =informacion.pedidos;
+
+            document.querySelector('#profile-card-cash .card-text').textContent = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 }).format(informacion.pagado);
+            
+        } catch (error) {
+            console.error("Error cargando información del usuario:", error);
+        }
+    });
+}
+
 const moreAddress = document.getElementById("more-address");
 if (moreAddress) {moreAddress.addEventListener('click', async() => {
         const selectDepartamento = document.getElementById("departamento");

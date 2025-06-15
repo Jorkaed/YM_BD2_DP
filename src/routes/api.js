@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 const {registrarUsuario} = require('../controllers/registrarControl');
 const {loguearUsuario} = require('../controllers/loginControl');
-const {obtenerDepartamentos, obtenerMunicipios} = require('../controllers/extrasControl');
+const {obtenerDepartamentos, obtenerMunicipios, obtenerInformacion } = require('../controllers/extrasControl');
 const {validarRegistro, validarLogin} = require('../middlewares/userValidation');
 
+router.get('/informacion/:idusuario', obtenerInformacion);
 router.get('/departamentos', obtenerDepartamentos);
 router.get('/municipios/:iddepartamento', obtenerMunicipios);
 router.post('/registro', validarRegistro, registrarUsuario);

@@ -1,19 +1,12 @@
-const products = [];
-  for (let i = 1; i <= 100; i++) {
-    products.push({
-      name: `Producto ${i}`,
-      price: `$${(Math.random() * 100000).toFixed(0)}`,
-    });
-  }
-
+console.log(productos);
 const productsPerPage = 12;
-const totalProducts = products.length;
+const totalProducts = productos.length;
 let currentPage = 1;
 
 function displayProducts(page) {
     const startIndex = (page - 1) * productsPerPage;
     const endIndex = startIndex + productsPerPage;
-    const displayedProducts = products.slice(startIndex, endIndex);
+    const displayedProducts = productos.slice(startIndex, endIndex);
 
     const productContainer = document.getElementById('products');
     productContainer.innerHTML = ''; // Limpiar productos anteriores
@@ -21,18 +14,20 @@ function displayProducts(page) {
     const row = document.createElement('div');
     row.className = 'row g-4'; // Bootstrap row + gap
 
-    displayedProducts.forEach(product => {
+    displayedProducts.forEach(producto => {
         const col = document.createElement('div');
         col.className = 'col-6 col-md-4 col-xl-3'; // 2, 3 y 4 columnas responsivo
 
         col.innerHTML = `
-            <div class="card rounded-0 shadow">
-                <img src="./img/image-demo.webp" class="card-img-top object-fit-cover px-3 pt-3" alt="${product.name}">
-                <div class="card-body d-flex flex-column justify-content-center">
-                    <h4 class="card-title fs-6 fw-normal">${product.name}</h4>
-                    <p class="card-text">${product.price}</p>
+        <a href="/producto/${producto.idproducto}" class="link-underline link-underline-opacity-0">
+            <div class="card rounded-0 h-100 card-hover">
+                <img src="./img/image-demo.webp" class="card-img-top object-fit-cover px-3 pt-3" alt="${producto.nombre}">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <h4 class="card-title fs-6 fw-normal my-auto">${producto.nombre}</h4>
+                    <p class="card-text mt-2">${new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 }).format(producto.precio)}</p>
                 </div>
             </div>
+        </a>
         `;
         row.appendChild(col); // Agregamos la tarjeta a la fila
     });

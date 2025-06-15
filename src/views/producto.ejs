@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <%- include('fragments/head') %>
+  <body>
+    <header id="header" class="navbar navbar-expand-lg fixed-top z-3 d-flex justify-content-center justify-content-md-between align-items-center px-4 py-0">
+        <%- include('fragments/header') %>
+    </header>
+    <main id="container">
+      <div id="slaps">
+        <%- include('fragments/offcanvas') %>
+      </div>
+      <div class="row g-4 container-lg mx-auto justify-content-center mt-3">
+      <!-- Imagen del producto -->
+      <div class="col-12 col-md-6 position-relative text-center">
+        <img id="product-page-img" src="/img/image-demo.webp" alt="Producto" class="w-100 object-fit-cover shadow">
+        <button id="favorite-btn" class="btn btn-light position-absolute d-flex align-items-center justify-content-center shadow">
+          <i class="bi bi-heart"></i>
+        </button>
+      </div>
+
+      <!-- Detalles del producto -->
+      <div class="col-12 col-sm-10 col-md-4">
+        <div class="p-3 border shadow">
+        <h1 class="mb-3"><%= producto.nombre %></h1>
+        <p class="text-muted"><%= producto.descripcion %></p>
+        <h3 class="mb-4" style="color: var(--quinary-color);"><%= new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 }).format(producto.precio) %></h3>
+
+        <!-- Selección de color -->
+        <div class="mb-3">
+          <label class="form-label d-block">Color:</label>
+          <div id="colores-container" class="d-flex gap-2">
+          </div>
+      </div>
+        
+        <!-- Selección de talla -->
+        <div class="mb-3">
+          <label for="talla" class="form-label">Talla:</label>
+          <select class="form-select" id="talla" disabled>
+            <option selected>Selecciona un color</option>
+          </select>
+        </div>
+        
+        <div class="mb-3">
+          <label id="label-cantidad" for="cantidad" class="form-label">Cantidad:</label>
+          <input id="cantidad" class="form-control" type="number" min="1" disabled></input>
+        </div>
+
+        <!-- Botón -->
+        <button class="btn btn-primary w-100 border-0 mb-2">Comprar ahora</button>
+        <button class="btn btn-secondary w-100 border-0">Añadir al carrito</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carrusel de productos relacionados -->
+    <div class="mt-5">
+      <h2 class="mb-3 px-4">Te podría interesar</h2>
+        <div id="productos-relacionados" class="carousel slide d-flex flex-column" data-bs-ride="carousel">
+          <div id="carrusel" class="d-flex flex-row px-3">
+            <button class="carousel-control-prev position-relative d-none d-md-block align-self-center" id="carousel-prev-carousel" type="button" data-bs-target="#productos-relacionados" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon w-100 h-100 border-0"></span>
+            </button>
+            <div id="carrusel-inner" class="carousel-inner px-md-3 py-3">
+            </div>
+            <button class="carousel-control-next position-relative d-none d-md-block align-self-center" id="carousel-next-carousel" type="button" data-bs-target="#productos-relacionados" data-bs-slide="next">
+              <span class="carousel-control-next-icon w-100 h-100 border-0"></span>
+            </button>
+          </div>
+          <div id="carrusel-controls" class="d-flex justify-content-center align-items-center w-100 px-4 gap-4">
+            <button class="carousel-control-prev position-relative d-md-none" id="carousel-prev-controls" type="button" data-bs-target="#productos-relacionados" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon w-100 h-100 border-0"></span>
+            </button>
+            <div id="carrusel-indicators" class="carousel-indicators position-relative m-0 gap-2">
+            </div>
+            <button class="carousel-control-next position-relative d-md-none" id="carousel-next-controls" type="button" data-bs-target="#productos-relacionados" data-bs-slide="next">
+              <span class="carousel-control-next-icon w-100 h-100 border-0"></span>
+            </button>
+          </div>
+        </div>
+    </div>
+    </main>
+    <script>
+      const productos = <%- JSON.stringify(productos) %>;
+      const variantes = <%- JSON.stringify(variantes) %>;
+      console.log(productos);
+    </script>
+    <%- include('fragments/footer') %>
+    <script type="module" src="/js/script_producto.js" ></script>
+    <script type="module" src="/js/carrusel.js"></script>
+  </body>
+</html>

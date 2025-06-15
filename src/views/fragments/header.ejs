@@ -12,7 +12,7 @@
     <button type="button" id="favorite-button" class="btn border-0" data-bs-toggle="offcanvas" data-bs-target="#favorite-slap" aria-controls="Favoritos"></button>
     <button type="button" id="bag-button" class="btn border-0" data-bs-toggle="offcanvas" data-bs-target="#bag-slap" aria-controls="Bolsa"></button>
     <% if (usuario) { %>
-        <button type="button" id="profile-button" class="btn border-0 p-0" data-bs-toggle="offcanvas" data-bs-target="#profile-slap" aria-controls="Menú"><img class="object-fit-cover w-100 h-100" style="border-radius: 50%;" src="/img/formas.jpg"></button>
+        <button type="button" id="profile-button" class="btn border-0 p-0" data-bs-toggle="offcanvas" data-bs-target="#profile-slap" aria-controls="Menú"><img class="object-fit-cover w-100 h-100" style="border-radius: 50%;" src="<%= usuario.imagen %>"></button>
     <% } else { %>
         <button type="button" id="login-button" class="btn border-0" data-bs-toggle="modal" data-bs-target="#login-modal" aria-controls="Inicio de Sesión"></button>
     <% } %>

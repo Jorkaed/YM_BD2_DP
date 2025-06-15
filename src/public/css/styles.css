@@ -175,7 +175,7 @@ body {
 }
 
 .card-img-top {
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 4 / 5;
 }
 
 .btn-primary,
@@ -212,6 +212,16 @@ body {
 #profile-card-box {
     background-color: #7E57C2;
     border-color: #512DA8;
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px) scale(1.02);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Index */
@@ -340,6 +350,41 @@ body {
     -webkit-mask-size: 100%;
 }
 
+/* Producto */
+
+#product-page-img {
+    aspect-ratio: 4 / 5;
+}
+
+.color-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  display: inline-block;
+  cursor: pointer;
+  transition: border 0.2s;
+}
+
+.color-option input:checked + .color-circle {
+  border: 2px solid var(--quinary-color);
+}
+
+#favorite-btn {
+  top: 15px;
+  right: 25px;
+}
+
+#favorite-btn {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+#favorite-btn.active i {
+  color: var(--secondary-color);
+}
+
 /* Colors */
 
 body,
@@ -439,8 +484,14 @@ body,
     border-color: var(--secondary-color);
 }
 
+select.form-select option {
+  background-color: white;
+  color: black;
+}
+
 .form-check-input[type="checkbox"]:focus,
-.form-control:focus {
+.form-control:focus,
+.form-select:focus {
     box-shadow: unset;
     border-color: var(--quinary-color);
 }
