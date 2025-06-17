@@ -82,7 +82,7 @@ DB_HOST=
 DB_PORT=
 DB_NAME=ymdb
 DB_USER=
-DB_PASSWORD
+DB_PASSWORD=
 SESSION_SECRET=
 ```
 Por motivos de seguridad, la configuración completa del archivo .env no se encuentra pública.
