@@ -78,13 +78,15 @@ Esto instalará automáticamente todas las dependencias listadas, incluyendo `mu
 Crea un archivo `.env` en la raíz con esta estructura:
 
 ```env
-DB_HOST=localhost
-DB_PORT=5432
+DB_HOST=
+DB_PORT=
 DB_NAME=ymdb
-DB_USER=postgres
-DB_PASSWORD=123456
-SESSION_SECRET=chocolate
+DB_USER=
+DB_PASSWORD
+SESSION_SECRET=
 ```
+Por motivos de seguridad, la configuración completa del archivo .env no se encuentra pública.
+Si necesitas acceso a estos valores, puedes solicitar la información escribiendo a sanabriastevenson936@gmail.com, o contactando a cualquiera de los desarrolladores involucrados en el proyecto.
 
 > Asegúrate de que la base de datos `ymdb` exista. Puedes crearla con el script `ymdb.sql` ubicado en `/src/public/docs`.
 
@@ -110,6 +112,8 @@ La app estará corriendo en: [http://localhost:3000](http://localhost:3000)
 
 - [Stevenson Jorkaed Arias Sanabria](https://github.com/Jorkaed)
 - [Michael Enrique Vejar Jimenez](https://github.com/MichaelVJ12)
+- [Dayson Santiago Guerrero Rodríguez](https://github.com/DaysonGuerrero)
+- [Estefany Dayana Vela Rangel](https://github.com/dayirangel)
 
 ## 📄 Licencia
 
