@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+  <%- include('fragments/head')%>
+  <body>
+    <header id="header" class="navbar navbar-expand-lg fixed-top z-3 d-flex justify-content-center justify-content-md-between align-items-center px-4 py-0">
+      <%- include('fragments/header') %>
+    </header>
+
+    <main id="container" class="mt-5 pt-5">
+      <div id="slaps">
+        <%- include('fragments/offcanvas') %>
+      </div>
+
+      <section class="container py-2">
+        <div class="position-relative d-flex flex-column align-items-center justify-content-center p-3 h-auto mb-4">
+          <img class="object-fit-cover w-100 h-100 opacity-25 rounded shadow position-absolute" src="/img/nosotros-back.webp">
+          <h1 class="text-center my-4 position-relative">Sobre nosotros</h1>
+          <p class="lead text-center mb-4 position-relative">
+            En <strong>Yesti Moda</strong> somos mucho más que una tienda de ropa femenina. Somos aliadas de tu estilo y de tu confianza. Desde nuestra apertura en 2014, hemos diseñado cada prenda pensando en mujeres reales que buscan comodidad, elegancia y personalidad en su día a día.
+          </p>
+        </div>
+        
+        <hr class="border-2">
+
+        <div class="mb-4">
+          <h2>¿Quiénes somos?</h2>
+          <p>
+            Un equipo de diseñadoras, confeccionistas y apasionadas de la moda que trabajamos en conjunto para ofrecerte colecciones versátiles y atemporales. Creemos que la ropa es una forma de expresarte, y por eso combinamos las últimas tendencias con cortes que se adapten a todas las siluetas y gustos.
+          </p>
+        </div>
+          <div class="mb-4 row">
+            <div class="col-md-6 p-3 text-center d-flex flex-column justify-content-center">
+              <h2>Nuestra misión</h2>
+              <p>
+                Inspirar y empoderar a cada mujer a través de prendas de calidad y diseño exclusivo. Queremos que te sientas cómoda, segura y auténtica en cualquier ocasión —ya sea en la oficina, en un evento especial o simplemente disfrutando de tu tiempo libre.
+              </p>
+            </div>
+            <div class="col-md-6 p-3">
+              <img class="nosotros-img w-100 object-fit-cover rounded" src="/img/nosotros-img-1.webp">
+            </div>
+          </div>
+        
+          <div class="mb-4 row d-flex flex-md-row-reverse">
+            <div class="col-md-6 p-3 text-center d-flex flex-column justify-content-center">
+              <h2>Nuestra visión</h2>
+              <p>
+                Ser una marca líder en moda femenina, reconocida por la calidad de nuestras prendas, la innovación en nuestros diseños y nuestra presencia tanto en Colombia como en los países vecinos. Queremos seguir creciendo junto a mujeres que buscan ropa que realce su belleza, refleje su estilo y refuerce su confianza en cada paso que dan.
+              </p>
+            </div>
+            <div class="col-md-6">
+              <img class="nosotros-img w-100 object-fit-cover rounded" src="/img/nosotros-img-2.webp">
+            </div>
+          </div>
+        <div class="mb-4">
+          <h2>Nuestros valores</h2>
+          <ul>
+            <li><strong>Calidad:</strong> hacemos uso de telas y acabados premium para que tus prendas duren más y luzcan siempre como nuevas.</li>
+            <li><strong>Inclusión:</strong> Diseños pensados para todas las tallas y estilos de vida.</li>
+            <li><strong>Sostenibilidad:</strong> Compromiso con procesos de producción responsables con el medio ambiente y nuestro equipo humano.</li>
+            <li><strong>Cercanía:</strong> Desde asesorías de estilo (punto de venta físico, por ahora) hasta atención postventa.</li>
+          </ul>
+        </div>
+
+        <div class="mb-4">
+          <h2>¿Por qué elegir Yesti Moda?</h2>
+          <ul>
+            <li><strong>Variedad de estilos:</strong> Casual, elegante y deportiva, siempre bajo un mismo techo.</li>
+            <li><strong>Experiencia de compra:</strong> Buscamos que sea sencilla y segura, tanto en tienda física como en nuestra tienda en línea.</li>
+            <li><strong>Actualizaciones constantes:</strong> Nuevas colecciones se adaptan a las tendencias de cada temporada para que siempre encuentres algo fresco.</li>
+          </ul>
+        </div>
+        
+        <hr class="border-2">
+
+        <p class="text-center mt-4">
+          ¡Te invitamos a conocernos y descubrir tu próximo look favorito! Si tienes dudas o quieres asesoría personalizada, escríbenos a <a href="mailto:contacto@yestimoda.com">contacto@yestimoda.com</a> o visítanos en nuestras redes.
+        </p>
+      </section>
+    </main>
+
+    <%- include('fragments/footer') %>
+  </body>
+</html>
+

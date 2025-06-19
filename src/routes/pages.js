@@ -38,6 +38,16 @@ router.get('/tienda', obtenerProductos, (req, res) => {
   }
 });
 
+router.get('/nosotros', (req, res) => {
+    const usuario = res.locals.usuario;
+
+    if (usuario && (usuario.tipo == 1 || usuario.tipo == 2)) {
+        return res.redirect('/dashboard');
+    } else {
+        res.render('us', { usuario });
+    }
+});
+
 router.get('/producto/:idproducto', obtenerProducto, obtenerVariantes, obtenerProductosMenos, (req, res) => {
     const usuario = res.locals.usuario;
     const producto = res.locals.producto || [];
