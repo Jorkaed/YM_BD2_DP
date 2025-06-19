@@ -37,16 +37,7 @@
                             <span
                                 class="carousel-control-prev-icon w-100 h-100 border-0"></span>
                         </button>
-                        <div id="carrusel-inner"
-                            class="carousel-inner px-md-3 py-3">
-                            <% novedades.forEach((producto, index) => { %>
-                            <div
-                                class="carousel-item <%= index === 0 ? 'active' : '' %>">
-                                <img src="<%= producto.imagen %>"
-                                    class="d-block w-100"
-                                    alt="<%= producto.nombre %>">
-                            </div>
-                            <% }) %>
+                        <div id="carrusel-inner" class="carousel-inner px-md-3 py-3">
                         </div>
                         <button
                             class="carousel-control-next position-relative d-none d-md-block align-self-center"
@@ -67,15 +58,7 @@
                             <span
                                 class="carousel-control-prev-icon w-100 h-100 border-0"></span>
                         </button>
-                        <div id="carrusel-indicators"
-                            class="carousel-indicators position-relative m-0 gap-2">
-                            <% novedades.forEach((producto, index) => { %>
-                            <button type="button"
-                                data-bs-target="#carrusel-novedades"
-                                data-bs-slide-to="<%= index %>"
-                                class="<%= index === 0 ? 'active' : '' %>"
-                                aria-label="Slide <%= index + 1 %>"></button>
-                            <% }) %>
+                        <div id="carrusel-indicators" class="carousel-indicators position-relative m-0 gap-2">
                         </div>
                         <button
                             class="carousel-control-next position-relative d-md-none"
