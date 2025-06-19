@@ -50,7 +50,8 @@
                                                         <div class="d-flex flex-wrap justify-content-center gap-1">
                                                             <button class="btn btn-warning btn-sm text-white">Modificar</button>
                                                             <form method="POST" action="/inventario/cambiar-estado/<%= item.idinventario %>">
-                                                                <button class="btn btn-<%= item.idestado === 2 ? 'success' : 'danger' %> btn-sm">
+                                                                <button class="btn btn-<%= item.idestado === 2 ? 'success' : 'danger' %> btn-sm"
+                                                                onclick="return confirm('<%= item.idestado === 2 ? '¿Deseas restaurar este producto?' : '¿Estás seguro de eliminar este producto?' %>')">
                                                                     <%= item.idestado === 2 ? 'Restaurar' : 'Eliminar' %>
                                                                 </button>
                                                             </form>
