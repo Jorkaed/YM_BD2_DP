@@ -47,7 +47,7 @@ Dentro de la carpeta [`/src/public/docs`](./src/public/docs) se encuentra:
 - Documentación general del sistema
 - Script de creación de la base de datos: `ymdb.sql`
 
-Este script permite crear la base de datos `ymdb` con todas sus tablas y relaciones necesarias para el correcto funcionamiento del sistema.
+Este script permite crear la base de datos `ymdb` con todas sus tablas y relaciones necesarias para el correcto funcionamiento del sistema.este script solo tiene datos de prueba para no comprometer la seguridad de nuestros usuarios.
 
 ## ⚙️ Instalación y ejecución
 
